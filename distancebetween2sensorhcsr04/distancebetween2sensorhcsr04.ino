@@ -2,6 +2,7 @@ int trigpin1 = 11;
 int echopin1 = 12;
 int trigpin2 = 9;
 int echopin2 = 10;
+float distancetotal = 11.2;
 float finalanswer;
 
 void setup() {
@@ -55,7 +56,7 @@ void loop() {
 
   Serial.println("----------------------");
   delay(500); // Wait before next reading
-  finalanswer = 8- (distance1 + distance2);
+  finalanswer = distancetotal - (distance1 + distance2);
   Serial.println("the width is ");
   Serial.print(finalanswer);
   delay(1000);
