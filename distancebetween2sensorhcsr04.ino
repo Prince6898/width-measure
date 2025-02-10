@@ -55,7 +55,7 @@ void loop() {
 
   Serial.println("----------------------");
   delay(500); // Wait before next reading
-  finalanswer = 8- (distance1 + distance2);
+  finalanswer = 8- (distance1 + distance2);//HETP: REMOVE THE STATIC 8 AND MAKE A VARIABLE HAVING DATATYPE FLOAT.
   Serial.println("the width is ");
   Serial.print(finalanswer);
   delay(1000);
