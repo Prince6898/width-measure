@@ -1,8 +1,9 @@
+#include "cmtoinch.h"
 int trigpin1 = 11;
 int echopin1 = 12;
 int trigpin2 = 9;
 int echopin2 = 10;
-float distancetotal = 11.2;
+float distancetotal = 21;
 float finalanswer;
 
 void setup() {
@@ -27,7 +28,7 @@ float measureDistance(int trig, int echo) {
     return -1; // No object detected
   }
 
-  float distance = duration * 0.034 / 2; // Convert to cm
+  float distance = duration/148; // Convert to cm
   return distance;
 }
 
@@ -43,21 +44,23 @@ void loop() {
   Serial.print("Sensor 1: ");
   if (distance1 == -1) Serial.println("No object detected");
   else {
+    //distance1=cmToInch(distance1);
     Serial.print(distance1);
-    Serial.println(" cm");
+    Serial.println(" inch");
   }
 
   Serial.print("Sensor 2: ");
   if (distance2 == -1) Serial.println("No object detected");
   else {
+    //distance2=cmToInch(distance2);
     Serial.print(distance2);
-    Serial.println(" cm");
+    Serial.println(" inch");
   }
 
   Serial.println("----------------------");
   delay(500); // Wait before next reading
   finalanswer = distancetotal - (distance1 + distance2);
-  Serial.println("the width is ");
-  Serial.print(finalanswer);
+  Serial.print("the width is ");
+  Serial.println(finalanswer);
   delay(1000);
 }
